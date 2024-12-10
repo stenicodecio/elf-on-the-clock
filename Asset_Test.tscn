@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0gedckef7m"]
+
+[ext_resource type="PackedScene" uid="uid://dpkpk7tsrawrl" path="res://tractor_back_wheel.tscn" id="1_x4iy6"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6k3wb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dyejl"]
+size = Vector3(2.15381, 0.0247803, 2.15552)
+
+[node name="AssetTest" type="Node3D"]
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("PlaneMesh_6k3wb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0588379, 0.00299072, 0.00671387)
+shape = SubResource("BoxShape3D_dyejl")
+
+[node name="Tractor_BackWheel" parent="." instance=ExtResource("1_x4iy6")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -0.171572, 1.06739, -0.132301)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.235232, 0.177445, -0.955604, -0.0424139, 0.984131, 0.172302, 0.971013, 0, 0.239025, -3.12991, 2.04238, 0.374063)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.894973, -0.0892471, -0.437102, 0.44612, 0.179041, 0.876882, 0, -0.979785, 0.200052, -0.608429, 3.71769, 1.52449)
+light_energy = 1.97

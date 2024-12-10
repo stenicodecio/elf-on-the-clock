@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpkpk7tsrawrl"]
+
+[ext_resource type="PackedScene" uid="uid://b0lekjefh6day" path="res://3DModels/Cars/Tractor_BackWheel.glb" id="1_msypa"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_elak3"]
+height = 0.248629
+
+[node name="Tractor_BackWheel" instance=ExtResource("1_msypa")]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" index="0"]
+transform = Transform3D(-0.767839, 78.418, 0, -78.418, -0.767839, 0, 0, 0, 78.4218, 0, 0, 0)
+shape = SubResource("CylinderShape3D_elak3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" index="1"]
+
+[node name="wheel-back-right" parent="." index="1"]
+transform = Transform3D(0.762203, 0, 0, 0, 0.762203, 0, 0, 0, 0.762203, 13.7896, 0, 0)
