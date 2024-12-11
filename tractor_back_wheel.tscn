@@ -1,19 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpkpk7tsrawrl"]
+[gd_scene load_steps=4 format=3 uid="uid://cijke80ngvodp"]
 
-[ext_resource type="PackedScene" uid="uid://b0lekjefh6day" path="res://3DModels/Cars/Tractor_BackWheel.glb" id="1_msypa"]
+[ext_resource type="ArrayMesh" uid="uid://ck1k084yule8j" path="res://3DModels/Cars/tractor_wheel_new.res" id="1_84g43"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_elak3"]
-height = 0.248629
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fyjop"]
+bounce = 0.6
 
-[node name="Tractor_BackWheel" instance=ExtResource("1_msypa")]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dlh3d"]
+height = 0.246485
+radius = 0.306055
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." index="0"]
+[node name="Wheel" type="RigidBody3D" groups=["moveable"]]
+physics_material_override = SubResource("PhysicsMaterial_fyjop")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" index="0"]
-transform = Transform3D(-0.767839, 78.418, 0, -78.418, -0.767839, 0, 0, 0, 78.4218, 0, 0, 0)
-shape = SubResource("CylinderShape3D_elak3")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.00308429, 0.99999, 0.00312327, 0.00589738, -0.00310504, 0.999978, 0.999978, 0.00310264, -0.00588774, -0.0261119, 0, 0)
+shape = SubResource("CylinderShape3D_dlh3d")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" index="1"]
-
-[node name="wheel-back-right" parent="." index="1"]
-transform = Transform3D(0.762203, 0, 0, 0, 0.762203, 0, 0, 0, 0.762203, 13.7896, 0, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.00631317, 0, 0, 0, 0.00726259, 0, 0, 0, 0.00726259, 0.0832163, 0, 0)
+mesh = ExtResource("1_84g43")
